@@ -21,4 +21,32 @@ body {
 </style></head><body><div class="back"></div><div class="edge"></div><div class="top">ÉTAT-MAJOR IMPÉRIAL · TRANSMISSION OFFICIELLE</div><main class="main"><div class="line"></div><h1>TANYA THE EVIL</h1><h2>EMPIRE ROLEPLAY</h2><p>Bienvenue dans l'Empire.<br>Préparation de votre affectation en cours.</p></main><footer class="footer"><div class="load"><div class="status" id="status">Connexion au serveur impérial…</div><div class="track"><div class="bar" id="bar"></div></div></div><div class="small" id="meta">MANGARP · EMPIRE</div></footer>
 <script>
 (function(){var total=0,needed=0;function progress(){if(total>0){var pct=Math.max(0,Math.min(100,Math.round((total-needed)/total*100)));document.getElementById('bar').style.width=pct+'%';}}window.GameDetails=function(servername,serverurl,mapname,maxplayers,steamid,gamemode,volume,language){document.getElementById('meta').textContent=(mapname||'EMPIRE')+' · '+(gamemode||'MANGARP');};window.SetFilesTotal=function(n){total=Number(n)||0;needed=total;progress();};window.SetFilesNeeded=function(n){needed=Number(n)||0;progress();};window.SetStatusChanged=function(s){document.getElementById('status').textContent=s||'Connexion en cours…';};window.DownloadingFile=function(s){document.getElementById('status').textContent='Téléchargement : '+(s||'fichiers du serveur');};})();
-</script></body></html>
+</script>
+<!-- MUSIQUE IMPERIALE - TANYA THE EVIL -->
+<audio id="imperial-music" loop preload="auto">
+    <source src="./intro.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(function () {
+    var music = document.getElementById("imperial-music");
+    music.volume = 0.30;
+
+    function startMusic() {
+        var result = music.play();
+
+        if (result && result.catch) {
+            result.catch(function () {
+                console.log("Lecture automatique bloquee.");
+            });
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startMusic);
+    } else {
+        startMusic();
+    }
+})();
+</script>
+</body></html>
